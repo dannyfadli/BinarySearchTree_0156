@@ -35,6 +35,10 @@ public:
         newNode->info = element;    //Assign value to the data field of the new code
         newNode->leftchild = nullptr;   //Make the left child of the new code point to null
         newNode->rightchild = nullptr;  //Make the right child of the new code point to null
+
+        Node* parent = nullptr;
+        Node* currentNode = nullptr;
+        search(element, parent, currentNode);       //Locate the new node will be the parent of the node to be insert
     }
 };
 
