@@ -42,7 +42,7 @@ public:
 
         if (parent == nullptr)      //if the parent is null (tree is empty)
         {
-
+            ROOT = newNode;         //Mark the new node as ROOT
         }
     }
 };
