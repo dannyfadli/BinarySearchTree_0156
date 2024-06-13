@@ -50,6 +50,70 @@ public:
         {
             parent->leftchild = newNode;    //Make the left child of the parent point to the new node
         }
+        else if (element > parent->info)    //If the value in the data field pf the new node is greater than that of the
+        {
+            parent->rightchild = newNode;   //Make the right child of the parent point to the new node
+        }
+
+    }
+
+    void search(string element, Node*& parent, Node*& currentNode)
+    {
+        //This fuction searches the currentNode of the speciafied Node as well as the current Node of its parent
+        currentNode = ROOT;
+        parent = nullptr;
+        while ((currentNode != nullptr) && (currentNode->info != element))
+        {
+            parent = currentNode;
+            if (element < currentNode->info)
+                currentNode = currentNode->leftchild;
+            else
+                currentNode = currentNode->rightchild;
+        }
+    }
+    void inorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            inorder(ptr->leftchild);
+            cout << ptr->info << " ";
+            inorder(ptr->rightchild);
+        }
+    }
+
+    void preorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            cout << ptr->info << " ";
+            preorder(ptr->leftchild);
+            preorder(ptr->rightchild);
+        }
+
+    }
+    void postorder(Node* ptr)
+    {
+        if (ROOT == nullptr)
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr != nullptr)
+        {
+            postorder(ptr->leftchild);
+            postorder(ptr->rightchild);
+            cout << ptr->info << " ";
+        }
 
     }
 };
